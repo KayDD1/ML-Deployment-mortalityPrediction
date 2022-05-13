@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Survival</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <!-- <img src=
+"tesside-logo.png"
+         alt="logo image", width="200", height="100", style="float:left"> -->
+
+
+<style>
+body {
+  background-image: url("https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?cs=srgb&dl=pexels-vidal-balielo-jr-3376790.jpg&fm=jpg");
+  background-position: 200%;
+  background-size: cover;
+}
+</style>
+
+
+
+ <div class="login">
+	<h2 class="title">Predict In-Patient Mortality</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="encounter_id" placeholder="encounter_id" required="required" />
+        <input type="text" name="gcs_unable_apache" placeholder="gcs_unable_apache" required="required" />
+		<input type="text" name="elective_surgery" placeholder="elective_surgery" required="required" />
+        <input type="text" name="apache_3j_diagnosis" placeholder="apache_3j_diagnosis" required="required" />
+        <input type="text" name="gcs_motor_apache" placeholder="gcs_motor_apache" required="required" />
+        <input type="text" name="age" placeholder="age" required="required" />
+        <input type="text" name="gcs_verbal_apache" placeholder="gcs_verbal_apache" required="required" />
+        <input type="text" name="weight" placeholder="weight" required="required" />
+        <input type="text" name="d1_heartrate_min" placeholder="d1_heartrate_min" required="required" />
+        <input type="text" name="resprate_apache" placeholder="resprate_apache" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
